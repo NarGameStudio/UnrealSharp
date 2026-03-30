@@ -115,6 +115,10 @@
             {
                 "Name": "FKey",
                 "HasDestructor": false
+            },
+            {
+                "Name": "FTargetingRequestHandle",
+                "HasDestructor": false
             }
         ]
     }
