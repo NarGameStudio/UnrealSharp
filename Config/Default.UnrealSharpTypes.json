@@ -1,7 +1,7 @@
 {
     "Structs": {
-        "CustomTypes": [ 
-            "FInstancedStruct" 
+        "CustomTypes": [
+            "FInstancedStruct"
         ],
         "BlittableTypes": [
             {
@@ -61,10 +61,9 @@
             {
                 "Name": "FTransform",
                 "ManagedType": "UnrealSharp.CoreUObject.FTransform",
-				"Attributes": 
-				{
-					"UserSpecifiedLayout": "true"
-				}
+                "Attributes": {
+                    "UserSpecifiedLayout": "true"
+                }
             },
             {
                 "Name": "FTimerHandle",
@@ -118,6 +117,10 @@
             },
             {
                 "Name": "FTargetingRequestHandle",
+                "HasDestructor": false
+            },
+            {
+                "Name": "FGameplayEffectCustomExecutionParameters",
                 "HasDestructor": false
             }
         ]
