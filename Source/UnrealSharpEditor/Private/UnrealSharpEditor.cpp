@@ -452,16 +452,16 @@ void FUnrealSharpEditorModule::PackageProject()
 		return;
 	}
 
-	FString ExecutablePath = ArchiveDirectory / FApp::GetProjectName() + ".exe";
-	if (!FPaths::FileExists(ExecutablePath))
-	{
-		FString DialogText = FString::Printf(
-			TEXT(
-				"The executable for project '%s' could not be found in the directory: %s. Please select the root directory where you packaged your game."),
-			FApp::GetProjectName(), *ArchiveDirectory);
-		FMessageDialog::Open(EAppMsgType::Ok, FText::FromString(DialogText));
-		return;
-	}
+	// FString ExecutablePath = ArchiveDirectory / FApp::GetProjectName() + ".exe";
+	// if (!FPaths::FileExists(ExecutablePath))
+	// {
+	// 	FString DialogText = FString::Printf(
+	// 		TEXT(
+	// 			"The executable for project '%s' could not be found in the directory: %s. Please select the root directory where you packaged your game."),
+	// 		FApp::GetProjectName(), *ArchiveDirectory);
+	// 	FMessageDialog::Open(EAppMsgType::Ok, FText::FromString(DialogText));
+	// 	return;
+	// }
 
 	FScopedSlowTask Progress(1, LOCTEXT("USharpPackaging", "Packaging Project..."));
 	Progress.MakeDialog();
@@ -477,11 +477,11 @@ void FUnrealSharpEditorModule::PackageProject()
 			FString::Printf(TEXT("Project '%s' has been packaged successfully."), FApp::GetProjectName())));
 	Info.ExpireDuration = 15.0f;
 	Info.bFireAndForget = true;
-	Info.ButtonDetails.Add(FNotificationButtonInfo(
-		LOCTEXT("USharpRunPackagedGame", "Run Packaged Game"),
-		LOCTEXT("", ""),
-		FSimpleDelegate::CreateStatic(&FUnrealSharpEditorModule::RunGame, ExecutablePath),
-		SNotificationItem::CS_None));
+	// Info.ButtonDetails.Add(FNotificationButtonInfo(
+	// 	LOCTEXT("USharpRunPackagedGame", "Run Packaged Game"),
+	// 	LOCTEXT("", ""),
+	// 	FSimpleDelegate::CreateStatic(&FUnrealSharpEditorModule::RunGame, ExecutablePath),
+	// 	SNotificationItem::CS_None));
 
 	Info.ButtonDetails.Add(FNotificationButtonInfo(
 		LOCTEXT("USharpOpenPackagedGame", "Open Folder"),
