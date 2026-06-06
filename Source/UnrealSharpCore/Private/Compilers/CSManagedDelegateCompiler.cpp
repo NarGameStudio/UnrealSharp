@@ -9,7 +9,7 @@ UCSManagedDelegateCompiler::UCSManagedDelegateCompiler()
 	FieldType = UCSDelegateFunction::StaticClass();
 }
 
-void UCSManagedDelegateCompiler::Recompile(UField* TypeToRecompile, const TSharedPtr<FCSManagedTypeDefinition>& ManagedTypeDefinition) const
+void UCSManagedDelegateCompiler::Compile(UField* TypeToRecompile, const TSharedPtr<FCSManagedTypeDefinition>& ManagedTypeDefinition) const
 {
 	UDelegateFunction* DelegateSignature = static_cast<UDelegateFunction*>(TypeToRecompile);
 	TSharedPtr<FCSFunctionReflectionData> FunctionReflectionData = ManagedTypeDefinition->GetReflectionData<FCSFunctionReflectionData>();
@@ -18,7 +18,7 @@ void UCSManagedDelegateCompiler::Recompile(UField* TypeToRecompile, const TShare
 	DelegateSignature->ParmsSize = 0;
 	DelegateSignature->ReturnValueOffset = 0;
 	DelegateSignature->NumParms = 0;
-	DelegateSignature->FunctionFlags = FunctionReflectionData->FunctionFlags;
+	DelegateSignature->FunctionFlags = FunctionReflectionData->FunctionFlags | FUNC_Public;
 	
 	FCSFunctionFactory::CreateParameters(DelegateSignature, *FunctionReflectionData);
 	DelegateSignature->StaticLink(true);
@@ -26,7 +26,7 @@ void UCSManagedDelegateCompiler::Recompile(UField* TypeToRecompile, const TShare
 	RegisterFieldToLoader(TypeToRecompile, ENotifyRegistrationType::NRT_Struct);
 }
 
-TSharedPtr<FCSTypeReferenceReflectionData> UCSManagedDelegateCompiler::CreateNewReflectionData() const
+TSharedPtr<FCSTypeReferenceReflectionData> UCSManagedDelegateCompiler::CreateReflectionData() const
 {
 	return MakeShared<FCSFunctionReflectionData>();
 }
