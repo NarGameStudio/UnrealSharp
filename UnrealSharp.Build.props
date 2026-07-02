@@ -10,6 +10,10 @@
     <DefineConstants>$(DefineConstants);$(WithTargetType);$(WithBuildConfig)</DefineConstants>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(BuildingAOT)' == 'true'">
+    <DefineConstants>$(DefineConstants);NATIVE_AOT</DefineConstants>
+  </PropertyGroup>
+
   <Target Name="DebugUETargetType" BeforeTargets="Compile">
     <Message Importance="high" Text="Build Parameters: Target Type: $(UETargetType) ($(WithTargetType)) | Configuration: $(UEBuildConfig) ($(WithBuildConfig))" />
   </Target>
