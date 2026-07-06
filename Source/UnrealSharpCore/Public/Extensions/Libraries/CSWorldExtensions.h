@@ -20,6 +20,9 @@ struct FCSSpawnActorParameters
 	FName Name;
 
 	UPROPERTY()
+	TWeakObjectPtr<ULevel> OverrideLevel = nullptr;
+	
+	UPROPERTY()
 	ESpawnActorCollisionHandlingMethod SpawnMethod = ESpawnActorCollisionHandlingMethod::Undefined;
 };
 

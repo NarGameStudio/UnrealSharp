@@ -59,6 +59,7 @@ AActor* UCSWorldExtensions::SpawnActor_Internal(const UObject* WorldContextObjec
 	SpawnParams.Instigator = SpawnParameters.Instigator;
 	SpawnParams.Owner = SpawnParameters.Owner;
 	SpawnParams.Template = SpawnParameters.Template;
+	SpawnParams.OverrideLevel = SpawnParameters.OverrideLevel.Get();
 	SpawnParams.SpawnCollisionHandlingOverride = SpawnParameters.SpawnMethod;
 	SpawnParams.bDeferConstruction = bDeferConstruction;
 	SpawnParams.Name = SpawnParameters.Name;
