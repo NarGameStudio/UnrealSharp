@@ -107,9 +107,7 @@ public static class PackageExporter
     private static bool IsDelegateType(UhtType type)
     {
         return type.EngineType == UhtEngineType.Delegate 
-#if UE_5_7_OR_LATER
                || type.EngineType == UhtEngineType.SparseDelegate
-#endif
                ;
     }
 }

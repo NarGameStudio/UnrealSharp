@@ -193,8 +193,9 @@ public class BuildUserGlue : BuildCommand
                 continue;
             }
 
-            LoggerUtilities.LogUnrealSharpInfo($"Adding project references for {Project.Name}.");
-
+            LoggerUtilities.LogUnrealSharpInfo($"Adding project references for {Project.Name} for path {Project.FullName}.");
+            
+            File.SetAttributes(Project.FullName, FileAttributes.Normal);
             XmlDocument CsprojDocument = new XmlDocument();
             CsprojDocument.Load(Project.FullName);
             CsprojDocument.EnsureProjectRoot();
